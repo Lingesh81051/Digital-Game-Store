@@ -1,0 +1,139 @@
+/* frontend/src/components/Checkout.css */
+
+/* Overall container styling */
+.checkout-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Centered logo and header */
+.checkout-logo {
+    border-radius: 50%;
+}
+
+/* Headers in blue */
+h1,h4 {
+    color: #3498db !important;
+}
+
+/* Form labels styling */
+.form-label {
+    color: #3498db !important;
+}
+
+/* Primary button styling */
+.btn-primary {
+    background-color: #3498db !important;
+    border-color: #3498db !important;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9 !important;
+    border-color: none;
+}
+
+/* Secondary Button */
+.btn-btn-secondary {
+    background-color: #3498db !important;
+    border-color: #3498db !important;
+    color: #FFFFFF;
+    border: none;
+}
+
+.btn-btn-secondary {
+    background-color: #2980b9 !important;
+    border-color: none;
+}
+
+/* Cart section styling */
+.cart-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* List group item styling for cart items */
+.list-group-item {
+    border: none;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item h6 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.list-group-item small.text-muted {
+    font-size: 0.9rem;
+}
+
+.list-group-item span.text-muted {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.list-group-item.bg-light {
+    background-color: #e9ecef;
+}
+
+/* Promo code form input group styling */
+.promo-form .input-group .form-control {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.promo-form .input-group .btn {
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+/* Form inputs styling */
+input.form-control,
+select.form-select {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+/* Button grid spacing */
+.d-grid .btn {
+    padding: 10px;
+}
+
+/* Additional spacing for rows */
+.row.g-3 {
+    margin-bottom: 15px;
+}
+
+.back-button, .back-icon {
+    color: #3498db !important;
+}
+
+/* Redeem button style */
+.Redeem-btn-secondary  {
+    padding: 5px 10px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    background-color: #3498db !important;
+    color: #fff !important;
+    font-size: 0.9rem !important;
+    transition: background-color 0.2s !important;
+  }
+  
+  .Redeem-btn-secondary :hover {
+    background-color: #2980b9 !important;
+  }
+  
+  .your-cart-title {
+    font-size: 1.5rem !important;
+    color: #3498db !important;
+
+  }
+

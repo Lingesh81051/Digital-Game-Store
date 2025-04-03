@@ -1,0 +1,164 @@
+/* Home.css */
+.home-container {
+  padding: 20px;
+  background-color: #f0f4f8;
+  text-align: center;
+}
+
+/* Carousel Section */
+.carousel-section {
+  margin-bottom: 40px;
+  position: relative;
+  text-align: left;
+}
+
+.carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px; /* aligns with header title */
+  margin-bottom: 10px;
+}
+
+.carousel-header h2 {
+  color: #3498db;
+  margin: 0;
+  text-align: left;
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #3498db;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  color: #2980b9;
+}
+
+/* Carousel container for all carousels */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
+  width: 1350px;  /* Updated fixed container width */
+  padding: 0;     /* No extra padding */
+}
+
+/* For Featured Discounts carousel, container remains 1350px */
+.carousel-container.featured {
+  width: 1350px;
+  margin: 20px auto;
+  padding: 0;
+}
+
+/* Carousel items container for non-featured carousels */
+/* For exactly 5 cards with 4 gaps of 20px in a 1350px container:
+   5 × cardWidth + 4 × 20 = 1350 → 5 × cardWidth = 1350 − 80 = 1270 → cardWidth = 1270 / 5 = 254px
+   But our non-featured cardWidth is already set to 254px via JS (284px was for 1500px container) 
+   So we use 254px here.
+*/
+.carousel-items {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  justify-content: flex-start;
+  width: fit-content;
+}
+
+/* For Featured Discounts carousel, override gap to 25px */
+.carousel-items.featured {
+  gap: 25px;
+}
+
+/* Product card styling for non-featured carousels */
+/* For 5 cards in a 1350px container: 5 * cardWidth + 4 * 20 = 1350 → cardWidth = 254px */
+.product-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 254px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 1.3rem;
+  color: #3498db;
+  margin: 10px 0;
+}
+
+.product-card .price {
+  font-size: 1.1rem;
+  color: #2980b9;
+  margin: 8px 0;
+}
+
+.details-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  margin-top: 15px;
+}
+
+.details-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Featured Discounts carousel overrides */
+/* For 3 cards in a 1350px container with 2 gaps of 25px:
+   3 × cardWidth + 2 × 25 = 1350 → 3 × cardWidth = 1350 − 50 = 1300 → cardWidth ≈ 433.33px, rounded to 433px */
+.carousel-section.featured .product-card {
+  width: 433px;
+}
+.carousel-section.featured .product-card img {
+  height: 300px;
+}
+
+/* Category tags styling */
+.category-tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.category-tags .tag {
+  background-color: #3498db;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,198 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Left Section */
+.header-left .logo a {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #3498db;
+}
+.header-left .logo i {
+  margin-right: 8px;
+}
+
+/* Center Section: Search Bar */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.search-form {
+  display: flex;
+  max-width: 600px;
+  width: 100%;
+}
+.search-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-right: none;
+  font-size: 1rem;
+}
+.search-form button {
+  padding: 10px 16px;
+  border: 1px solid #3498db;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.search-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Right Section: Navigation and Avatar */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+.header-right a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #3498db;
+  transition: color 0.2s;
+  margin: 0;
+  padding: 0;
+}
+.header-right a:hover {
+  color: #2980b9;
+}
+
+/* Navigation Dropdown (Home) */
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  z-index: 100;
+  min-width: 150px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;  /* Increased transition duration */
+}
+.dropdown-menu a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #3498db;
+  transition: background-color 0.2s;
+}
+.dropdown-menu a:hover {
+  background-color: #f0f4f8;
+}
+/* Keep the dropdown visible when hovering over either the trigger or the menu */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+  opacity: 1;
+}
+
+/* Avatar Dropdown */
+.avatar-dropdown {
+  position: relative;
+  margin: 0;
+}
+.avatar-icon {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  margin: 0;
+  display: block;
+}
+
+/* Avatar Dropdown Menu - using same styling as Home dropdown */
+.avatar-dropdown .avatar-menu {
+  display: block;
+  position: absolute;
+  right: 0;
+  left: auto;
+  z-index: 100;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  width: 220px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease;
+  top: 110%;
+  bottom: auto;
+}
+
+/* Open upward if not enough space below */
+.avatar-dropdown .avatar-menu.open-up {
+  top: auto;
+  bottom: 110%;
+}
+
+/* User Info Section */
+.user-info {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+.user-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Dropdown Links */
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #3498db;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+.dropdown-item:hover {
+  background-color: #f0f4f8;
+}
+
+/* Logout Button: Red text and red icon */
+.logout-btn {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  color: #e74c3c !important; /* red text */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logout-btn i {
+  color: #e74c3c; /* red icon */
+}

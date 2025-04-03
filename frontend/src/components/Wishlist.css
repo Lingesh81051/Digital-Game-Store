@@ -1,0 +1,120 @@
+/* frontend/src/components/Wishlist.css */
+.wishlist-page {
+  background-color: #f0f4f8;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wishlist-container {
+  max-width: 1200px; /* Increased container width */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.wishlist-container h1 {
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.wishlist-container p {
+  font-size: 1.2rem;
+  color: #3498db;
+}
+
+/* Wishlist Grid using CSS Grid for 4 items per row */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Wishlist Card Styling using Product Card values */
+.wishlist-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.wishlist-card:hover {
+  transform: translateY(-5px);
+}
+
+.wishlist-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.wishlist-card h3 {
+  font-size: 1.3rem;
+  color: #3498db;
+  margin: 10px 0;
+}
+
+/* Remove default underline for title link */
+.title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+}
+
+.wishlist-card .price {
+  font-size: 1.1rem;
+  color: #2980b9;
+  margin: 8px 0;
+}
+
+/* Button Group Container: vertically stack buttons, center aligned */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Scoped Buttons styling for Wishlist Page only */
+.wishlist-page .button-group .remove-btn,
+.wishlist-page .button-group .add-to-cart-btn {
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  cursor: pointer;
+  text-align: center;
+  width: 100% !important;
+  border: none;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+/* Remove from Wishlist button styling */
+.wishlist-page .button-group .remove-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.wishlist-page .button-group .remove-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Add to Cart button styling with green color */
+.wishlist-page .button-group .add-to-cart-btn {
+  background-color: #27ae60;
+  color: #fff;
+}
+.wishlist-page .button-group .add-to-cart-btn:hover {
+  background-color: #1e8449;
+}

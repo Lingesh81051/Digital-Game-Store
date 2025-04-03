@@ -1,0 +1,81 @@
+/* Signup.css */
+.signup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background-color: #f0f4f8;
+    padding: 20px;
+  }
+  
+  .signup-box {
+    background-color: #fff;
+    padding: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  .signup-box h2 {
+    margin-bottom: 20px;
+    color: #3498db;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .signup-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+  }
+  
+  .signup-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .signup-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .signup-switch {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .signup-switch a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .signup-switch a:hover {
+    text-decoration: underline;
+  }
+  

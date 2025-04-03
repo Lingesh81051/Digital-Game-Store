@@ -1,0 +1,47 @@
+/* Discover.css */
+.discover-container {
+  padding: 20px;
+  background-color: #f0f4f8;
+  text-align: center;
+}
+
+.discover-container h1 {
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.discover-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.discover-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 260px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.discover-card:hover {
+  transform: translateY(-5px);
+}
+
+.discover-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.discover-card h3 {
+  font-size: 1.3rem;
+  color: #3498db;
+  margin: 10px 0;
+}

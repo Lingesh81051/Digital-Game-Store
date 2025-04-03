@@ -1,0 +1,155 @@
+/* Library Page Styles */
+.library-page {
+  background-color: #f0f4f8;
+  padding: 40px 20px;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+.library-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.library-container h1 {
+  color: #3498db;
+  margin-bottom: 30px;
+}
+
+.empty-msg {
+  font-size: 1.2rem;
+  color: #3498db;
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* Library Grid: Using a column layout similar to Cart tile list */
+.library-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Library Card Styling: Based on Cart Tile styling with reduced height */
+.library-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  height: 140px; /* Reduced height for a more compact design */
+}
+
+.library-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image section */
+.tile-image {
+  flex: 0 0 140px; /* Adjusted to match reduced card height */
+  height: 100%;
+  overflow: hidden;
+}
+
+.tile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Details section */
+.tile-details {
+  flex: 1;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.tile-details h4 {
+  font-size: 1.3rem;
+  color: #3498db;
+  margin-bottom: 8px;
+}
+
+/* Clickable game title styling */
+.tile-details h4 .game-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tile-details h4 .game-link:hover {
+  text-decoration: underline;
+}
+
+/* Actions container */
+.tile-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Common action button styling */
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+}
+
+/* Install button in green */
+.install-btn {
+  color: #27ae60;
+  /* No underline */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.install-btn:hover {
+  color: #1e8449;
+}
+
+/* Check for updates button in orange */
+.update-btn {
+  color: #e67e22;
+  transition: color 0.2s;
+}
+.update-btn:hover {
+  color: #d35400;
+}
+
+/* Achievements button in purple */
+.achievements-btn {
+  color: #8e44ad;
+  transition: color 0.2s;
+}
+.achievements-btn:hover {
+  color: #71368a;
+}
+
+/* Go to store page button in blue */
+.store-btn {
+  color: #3498db;
+  transition: color 0.2s;
+}
+.store-btn:hover {
+  color: #2980b9;
+}
+
+/* Icon styling (ensure Font Awesome is loaded) */
+.action-btn i {
+  font-size: 1rem;
+}

@@ -1,0 +1,53 @@
+/* CategoryFilter.css */
+.category-filter {
+  position: relative;
+  display: inline-block;
+}
+
+.filter-icon {
+  background-color: #fff;
+  border: 1px solid #3498db;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  color: #3498db;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-icon:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 100;
+}
+
+.filter-dropdown label {
+  display: block;
+  padding: 5px;
+  font-size: 1rem;
+  color: #3498db;
+  cursor: pointer;
+}
+
+.filter-dropdown label:hover {
+  background-color: #f0f4f8;
+}
+
+.filter-dropdown input[type="checkbox"] {
+  margin-right: 5px;
+}

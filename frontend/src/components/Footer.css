@@ -1,0 +1,30 @@
+.main-footer {
+  background-color: #ffffff;
+  color: #3498db;
+  padding: 20px 0;
+  font-family: 'Roboto', sans-serif;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #3498db;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #2980b9;
+}
