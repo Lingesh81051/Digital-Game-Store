@@ -15,6 +15,9 @@ import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Checkout from './components/Checkout';
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './components/admin/AdminDashboard';
+import ManageProducts from './components/admin/ManageProducts';
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -24,6 +27,7 @@ function App() {
       <Header />
       <main className="main-content">
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/news" element={<News />} />
@@ -36,6 +40,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkout" element={<Checkout />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="products" element={<ManageProducts />} />
+            {/* Additional admin routes can be added here */}
+          </Route>
         </Routes>
       </main>
       <Footer />

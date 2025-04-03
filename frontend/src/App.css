@@ -8,7 +8,7 @@ body {
 }
 
 .main-content {
-  padding: 20px;
+  padding: 0px;
   min-height: calc(100vh - 160px);
 }
 
