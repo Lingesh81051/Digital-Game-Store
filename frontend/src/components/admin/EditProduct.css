@@ -1,0 +1,125 @@
+/* EditProduct.css */
+.edit-product {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.edit-product h1 {
+  color: #3498db;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="number"],
+.edit-form input[type="date"],
+.edit-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-form textarea {
+  resize: vertical;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+legend {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.file-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.browse-btn {
+  background: #3498db;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.browse-btn:hover {
+  background: #2980b9;
+}
+
+.modal-actions {
+  text-align: right;
+}
+
+.modal-actions button {
+  padding: 8px 15px;
+  margin-left: 10px;
+}
+
+.back-action {
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+.back-action i {
+  margin-right: 0.5rem;
+}
+
+/* New Category Tags Styling for EditProduct */
+.categories-section {
+  margin-bottom: 15px;
+}
+
+.categories-section p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-tag {
+  padding: 5px 10px;
+  border: 1px solid #3498db;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #3498db;
+  transition: all 0.2s ease;
+}
+
+.category-tag.selected {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.category-tag:hover {
+  background-color: #2980b9;
+  color: #fff;
+}

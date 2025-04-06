@@ -1,26 +1,55 @@
 // frontend/src/components/admin/ManageProducts.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './ManageProducts.css';
 
 function ManageProducts() {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const { data } = await axios.get('/api/products');
-        setProducts(data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    }
     fetchProducts();
   }, []);
 
+  async function fetchProducts() {
+    try {
+      const { data } = await axios.get('/api/products');
+      setProducts(data);
+      console.log('Products fetched:', data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  }
+
+  const handleEditClick = (productId) => {
+    navigate(`/admin/products/edit/${productId}`);
+  };
+
+  const handleDelete = async (productId) => {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      try {
+        await axios.delete(`/api/admin/products/${productId}`);
+        console.log('Product deleted:', productId);
+        fetchProducts();
+      } catch (error) {
+        console.error('Error deleting product:', error);
+      }
+    }
+  };
+
+  const handleAddProduct = () => {
+    navigate('/admin/products/add');
+  };
+
   return (
     <div className="manage-products">
-      <h1>Manage Products</h1>
+      <div className="header-row">
+        <h1>Manage Products</h1>
+        <button className="add-product-btn" onClick={handleAddProduct}>
+          Add
+        </button>
+      </div>
       {products.length === 0 ? (
         <p>No products available.</p>
       ) : (
@@ -33,13 +62,23 @@ function ManageProducts() {
             </tr>
           </thead>
           <tbody>
-            {products.map(product => (
+            {products.map((product) => (
               <tr key={product._id}>
                 <td>{product.name}</td>
                 <td>${product.price}</td>
                 <td>
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleEditClick(product._id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(product._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

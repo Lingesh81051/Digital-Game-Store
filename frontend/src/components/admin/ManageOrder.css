@@ -1,0 +1,124 @@
+/* ManageOrder.css */
+
+/* Order List View */
+.manage-orders {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.manage-orders h1 {
+  text-align: center;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.manage-orders table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.manage-orders table th,
+.manage-orders table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.manage-orders table th {
+  background-color: #f2f2f2;
+}
+
+.manage-orders table td button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.manage-orders table td button:hover {
+  background-color: #2980b9;
+}
+
+/* Order Details View */
+.order-details {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-details h1 {
+  text-align: center;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.order-details p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.order-details ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.order-details ul li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* Timeline styling */
+.order-details ul li {
+  margin-bottom: 8px;
+}
+
+/* Status update section */
+.status-update {
+  margin: 20px 0;
+  display: flex;
+  gap: 20px;
+}
+
+.status-update label {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Update actions button */
+.update-actions {
+  text-align: right;
+}
+
+.update-actions button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-actions button:hover {
+  background-color: #2980b9;
+}
+
+/* Back Action styling */
+.back-action {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.back-action i {
+  margin-right: 8px;
+}

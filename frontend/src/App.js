@@ -18,6 +18,9 @@ import Checkout from './components/Checkout';
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageProducts from './components/admin/ManageProducts';
+import EditProduct from './components/admin/EditProduct';
+import AddProduct from './components/admin/AddProduct';
+import ManageOrder from './components/admin/ManageOrder'; // New: ManageOrder component
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -45,7 +48,9 @@ function App() {
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="products" element={<ManageProducts />} />
-            {/* Additional admin routes can be added here */}
+            <Route path="products/add" element={<AddProduct />} />
+            <Route path="products/edit/:id" element={<EditProduct />} />
+            <Route path="orders" element={<ManageOrder />} /> {/* New: Manage orders route */}
           </Route>
         </Routes>
       </main>

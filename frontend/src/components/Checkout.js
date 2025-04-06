@@ -512,7 +512,7 @@ function Checkout() {
                   className="form-control"
                   id="expiryDate"
                   name="expiryDate"
-                  placeholder="01/2099"
+                  placeholder="01/99"
                   value={billingInfo.expiryDate}
                   onChange={handleBillingChange}
                   required
