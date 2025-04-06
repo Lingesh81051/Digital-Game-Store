@@ -9,6 +9,7 @@ function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [favouriteColor, setFavouriteColor] = useState(''); // Security question answer
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
@@ -19,10 +20,9 @@ function Signup() {
       return;
     }
     try {
-      await axios.post('/api/auth/register', { name, email, password });
-      // Show a notification prompting the user to log in
+      // Send the extra field "favouriteColor" along with the other registration details.
+      await axios.post('/api/auth/register', { name, email, password, favouriteColor });
       setMessage("Registration successful! Please log in with your credentials.");
-      // Redirect to login page after a short delay (e.g., 3 seconds)
       setTimeout(() => {
         navigate('/login');
       }, 4000);
@@ -75,6 +75,17 @@ function Signup() {
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
+          {/* New Security Question Field */}
+          <div className="form-group">
+            <label>What is your favourite color?</label>
+            <input 
+              type="text"
+              placeholder="Enter your favourite color"
+              value={favouriteColor}
+              onChange={(e) => setFavouriteColor(e.target.value)}
               required
             />
           </div>

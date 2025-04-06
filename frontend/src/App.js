@@ -20,7 +20,8 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import ManageProducts from './components/admin/ManageProducts';
 import EditProduct from './components/admin/EditProduct';
 import AddProduct from './components/admin/AddProduct';
-import ManageOrder from './components/admin/ManageOrder'; // New: ManageOrder component
+import ManageOrder from './components/admin/ManageOrder';
+import ManageUser from './components/admin/ManageUser'; // New: ManageUser component
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -50,7 +51,8 @@ function App() {
             <Route path="products" element={<ManageProducts />} />
             <Route path="products/add" element={<AddProduct />} />
             <Route path="products/edit/:id" element={<EditProduct />} />
-            <Route path="orders" element={<ManageOrder />} /> {/* New: Manage orders route */}
+            <Route path="orders" element={<ManageOrder />} />
+            <Route path="users" element={<ManageUser />} /> {/* New: Manage users route */}
           </Route>
         </Routes>
       </main>

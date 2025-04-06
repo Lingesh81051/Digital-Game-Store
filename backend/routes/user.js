@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Library = require('../models/Library');
 const { protect } = require('../middleware/authMiddleware');
 
 // GET /api/user/profile - Get user wishlist and cart
@@ -102,6 +103,57 @@ router.delete('/cart/:productId', protect, async (req, res) => {
   } catch (error) {
     console.error("Error removing product from cart:", error);
     res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// NEW: GET /api/user/library - Get user's library with populated game details
+router.get('/library', protect, async (req, res) => {
+  try {
+    const library = await Library.findOne({ user: req.user.id }).populate('games');
+    // If no library exists yet, return an empty games array
+    if (!library) {
+      return res.json({ games: [] });
+    }
+    res.json(library);
+  } catch (error) {
+    console.error("Error fetching library:", error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// NEW: POST /api/user/library - Add a game to the user's library
+router.post('/library', protect, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { productId } = req.body;
+    // Check if the product exists (assuming you have a Product model)
+    const Product = require('../models/Product');
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    // Find the user's library; create one if it doesn't exist
+    let library = await Library.findOne({ user: userId });
+    if (!library) {
+      library = await Library.create({
+        user: userId,
+        games: [productId]
+      });
+    } else {
+      // Add product if it's not already in the library
+      if (!library.games.includes(productId)) {
+        library.games.push(productId);
+        await library.save();
+      }
+    }
+
+    // Populate the games field to return full game details
+    const populatedLibrary = await Library.findOne({ user: userId }).populate('games');
+    res.json(populatedLibrary);
+  } catch (error) {
+    console.error("Error adding to library:", error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 

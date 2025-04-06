@@ -8,15 +8,46 @@
 }
 
 .manage-orders h1 {
-  text-align: center;
+  text-align: left;
   color: #3498db;
   margin-bottom: 20px;
 }
 
 .manage-orders table {
-  width: 100%;
+  width: 100% !important;
   border-collapse: collapse;
   margin-top: 20px;
+}
+
+/* Increase column span widths */
+.manage-orders table th:nth-child(1),
+.manage-orders table td:nth-child(1) {
+  width: 20%;
+}
+
+.manage-orders table th:nth-child(2),
+.manage-orders table td:nth-child(2) {
+  width: 20%;
+}
+
+.manage-orders table th:nth-child(3),
+.manage-orders table td:nth-child(3) {
+  width: 20%;
+}
+
+.manage-orders table th:nth-child(4),
+.manage-orders table td:nth-child(4) {
+  width: 20%;
+}
+
+.manage-orders table th:nth-child(5),
+.manage-orders table td:nth-child(5) {
+  width: 20%;
+}
+
+.manage-orders table th:nth-child(6),
+.manage-orders table td:nth-child(6) {
+  width: 30%;
 }
 
 .manage-orders table th,

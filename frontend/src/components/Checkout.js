@@ -119,6 +119,8 @@ function Checkout() {
       ));
     } catch (error) {
       console.error("Error updating library and clearing cart:", error);
+      // Rethrow the error so the checkout process can handle it
+      throw error;
     }
   };
 
@@ -134,7 +136,8 @@ function Checkout() {
     // Construct order data object with all required details
     const orderData = {
       orderItems: cartItems.map((item) => ({
-        product: item.product._id, // assuming each cart item has a product object with _id
+        product: item.product._id,        // reference to the product
+        name: item.product.name,          // include the product name (new field)
         quantity: item.quantity || 1
       })),
       totalPrice: total,
@@ -166,6 +169,7 @@ function Checkout() {
       // After order is saved, clear the cart and add purchased games to the library
       await clearCartAndAddToLibrary();
       alert('Checkout complete! Thank you for your purchase.');
+      console.log('Navigating to library page...');
       // Navigate to the library page where the user can install their games
       navigate('/library');
     } catch (error) {

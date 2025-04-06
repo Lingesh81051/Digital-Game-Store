@@ -1,3 +1,4 @@
+// frontend/src/components/Library.js
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -20,9 +21,11 @@ function Library() {
     async function fetchLibrary() {
       try {
         const response = await axios.get('/api/user/library', getAuthConfig());
-        if (response.data && response.data.games) {
-          setLibraryItems(response.data.games);
-        }
+        console.log("Library response:", response.data);
+        // If the backend returns an object with a "games" key, use that.
+        // Otherwise, assume the response data is an array.
+        const games = response.data.games || response.data;
+        setLibraryItems(games);
       } catch (error) {
         console.error("Error fetching library:", error);
       }
@@ -40,7 +43,7 @@ function Library() {
     item.name.toLowerCase().includes(searchKeyword.toLowerCase())
   );
 
-  // Action handlers (replace alerts with your actual functionality)
+  // Action handlers
   const handleInstall = (itemName) => {
     alert(`Installing ${itemName}...`);
   };
@@ -74,7 +77,7 @@ function Library() {
               <div key={item._id} className="library-card">
                 <div className="tile-image">
                   <img
-                    src={item.image.startsWith('/') ? `http://localhost:5000${item.image}` : item.image}
+                    src={item.image && item.image.startsWith('/') ? `http://localhost:5000${item.image}` : item.image}
                     alt={item.name}
                     onError={(e) => {
                       e.target.onerror = null;
