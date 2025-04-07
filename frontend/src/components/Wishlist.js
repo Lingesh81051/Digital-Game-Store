@@ -17,8 +17,10 @@ function Wishlist() {
     try {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
+      // Ensure your backend GET /api/user/profile populates the wishlist field:
+      // e.g. User.findById(req.user.id).select('-password').populate('wishlist')
       const response = await axios.get('/api/user/profile', config);
-      // Assuming response.data.wishlist is an array of product objects
+      // Expect response.data.wishlist to be an array of product objects
       setWishlistItems(response.data.wishlist || []);
       const ids = (response.data.wishlist || []).map(item => item._id);
       localStorage.setItem('wishlist', JSON.stringify(ids));
@@ -113,8 +115,9 @@ function Wishlist() {
     }
   };
 
+  // Safely filter wishlist items by product name
   const filteredItems = wishlistItems.filter(item =>
-    item.name.toLowerCase().includes(searchKeyword.toLowerCase())
+    String(item.name || "").toLowerCase().includes(searchKeyword.toLowerCase())
   );
 
   return (
@@ -131,7 +134,13 @@ function Wishlist() {
             {filteredItems.map(item => (
               <div key={item._id} className="wishlist-card">
                 <img
-                  src={item.image.startsWith('/') ? `http://localhost:5000${item.image}` : item.image}
+                  src={
+                    item.image
+                      ? (item.image.startsWith('/') 
+                          ? `http://localhost:5000${item.image}` 
+                          : item.image)
+                      : 'http://localhost:5000/images/placeholder.png'
+                  }
                   alt={item.name}
                   onError={(e) => {
                     if (e.target.src !== 'http://localhost:5000/images/placeholder.png') {

@@ -12,10 +12,13 @@ try {
 }
 const { protect } = require('../middleware/authMiddleware');
 
-// GET / - fetch current user profile (exclude password)
+// GET / - fetch current user profile (exclude password) and populate wishlist
 router.get('/', protect, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    // Populate wishlist with full product details
+    const user = await User.findById(req.user.id)
+      .select('-password')
+      .populate('wishlist');
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
