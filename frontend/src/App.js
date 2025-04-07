@@ -1,4 +1,3 @@
-// frontend/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -15,8 +14,8 @@ import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Checkout from './components/Checkout';
-import ResetPassword from './components/ResetPassword'; // New: ResetPassword component
-import ViewProfile from './components/ViewProfile'; // New: ViewProfile component
+import ResetPassword from './components/ResetPassword';
+import ViewProfile from './components/ViewProfile';
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageProducts from './components/admin/ManageProducts';
@@ -24,6 +23,7 @@ import EditProduct from './components/admin/EditProduct';
 import AddProduct from './components/admin/AddProduct';
 import ManageOrder from './components/admin/ManageOrder';
 import ManageUser from './components/admin/ManageUser';
+import EditUser from './components/admin/EditUser'; // New: EditUser page for user editing
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -47,7 +47,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/profile" element={<ViewProfile />} />  {/* New profile route */}
+          <Route path="/profile" element={<ViewProfile />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
@@ -57,6 +57,7 @@ function App() {
             <Route path="products/edit/:id" element={<EditProduct />} />
             <Route path="orders" element={<ManageOrder />} />
             <Route path="users" element={<ManageUser />} />
+            <Route path="users/edit/:id" element={<EditUser />} />
           </Route>
         </Routes>
       </main>

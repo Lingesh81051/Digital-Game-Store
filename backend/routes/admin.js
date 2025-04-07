@@ -33,12 +33,11 @@ router.get('/dashboard', protect, adminOnly, async (req, res) => {
   }
 });
 
-// Create new product
+// Product management endpoints
 router.post('/products', protect, adminOnly, async (req, res) => {
   try {
     const product = new Product(req.body);
     const createdProduct = await product.save();
-    // Read seed file synchronously and update the products array
     let products = [];
     try {
       const data = fs.readFileSync(seedFilePath, 'utf8');
@@ -54,7 +53,6 @@ router.post('/products', protect, adminOnly, async (req, res) => {
   }
 });
 
-// Update product route (only update the modified product entry in the seed file)
 router.put('/products/:id', protect, adminOnly, async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -63,7 +61,6 @@ router.put('/products/:id', protect, adminOnly, async (req, res) => {
       { new: true }
     );
     if (updatedProduct) {
-      // Read seed file synchronously
       let products = [];
       try {
         const data = fs.readFileSync(seedFilePath, 'utf8');
@@ -71,7 +68,6 @@ router.put('/products/:id', protect, adminOnly, async (req, res) => {
       } catch (err) {
         console.error('Error reading or parsing seed file:', err);
       }
-      // Find the specific product entry and update it
       const index = products.findIndex(p => p._id === req.params.id);
       if (index !== -1) {
         products[index] = { ...products[index], ...updatedProduct.toObject() };
@@ -90,13 +86,11 @@ router.put('/products/:id', protect, adminOnly, async (req, res) => {
   }
 });
 
-// Delete product route (remove only the deleted product entry from the seed file)
 router.delete('/products/:id', protect, adminOnly, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (product) {
       await product.remove();
-      // Read seed file synchronously and filter out the deleted product
       let products = [];
       try {
         const data = fs.readFileSync(seedFilePath, 'utf8');
@@ -116,11 +110,7 @@ router.delete('/products/:id', protect, adminOnly, async (req, res) => {
   }
 });
 
-/* -------------------------
-   Order Management Endpoints
-   ------------------------- */
-
-// Get all orders (Order List View)
+// Order management endpoints
 router.get('/orders', protect, adminOnly, async (req, res) => {
   try {
     const orders = await Order.find({}).populate('orderItems.product', 'name');
@@ -130,7 +120,6 @@ router.get('/orders', protect, adminOnly, async (req, res) => {
   }
 });
 
-// Get single order details (Order Details View)
 router.get('/orders/:id', protect, adminOnly, async (req, res) => {
   try {
     const order = await Order.findById(req.params.id)
@@ -145,7 +134,6 @@ router.get('/orders/:id', protect, adminOnly, async (req, res) => {
   }
 });
 
-// Update order status (Update Order Status)
 router.put('/orders/:id', protect, adminOnly, async (req, res) => {
   try {
     const updatedOrder = await Order.findByIdAndUpdate(
@@ -163,15 +151,60 @@ router.put('/orders/:id', protect, adminOnly, async (req, res) => {
   }
 });
 
-/* -------------------------
-   User Management Endpoints
-   ------------------------- */
+// User management endpoints
 
-// Get all users (Manage Users)
+// Get all users
 router.get('/users', protect, adminOnly, async (req, res) => {
   try {
     const users = await User.find({}).select('-password');
     res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Get single user (for EditUser)
+router.get('/users/:id', protect, adminOnly, async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).select('-password');
+    if (user) {
+      res.json(user);
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Update user details (for EditUser)
+router.put('/users/:id', protect, adminOnly, async (req, res) => {
+  const { username, phone, address, favouritePlace, isAdmin } = req.body;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      { username, phone, address, favouritePlace, isAdmin },
+      { new: true, runValidators: true }
+    ).select('-password');
+    if (updatedUser) {
+      res.json(updatedUser);
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Delete a user
+router.delete('/users/:id', protect, adminOnly, async (req, res) => {
+  try {
+    const deletedUser = await User.findByIdAndDelete(req.params.id);
+    if (deletedUser) {
+      res.json({ message: 'User deleted successfully' });
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
