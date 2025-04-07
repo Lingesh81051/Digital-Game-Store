@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    color: #3498db;
+    color: #3498db !important;
   }
   
   .back-action i {
@@ -22,7 +22,7 @@
   }
   
   .edit-user h1 {
-    color: #3498db;
+    color: #3498db !important;
     margin-bottom: 20px;
     text-align: center;
   }

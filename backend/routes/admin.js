@@ -163,7 +163,8 @@ router.get('/users', protect, adminOnly, async (req, res) => {
   }
 });
 
-// Get single user (for EditUser)
+// Get a single user by ID (for EditUser)
+// This endpoint returns all user fields (including new profile fields like address with country) except password.
 router.get('/users/:id', protect, adminOnly, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');

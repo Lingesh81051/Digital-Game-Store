@@ -17,7 +17,6 @@ function ManageUser() {
     try {
       setLoading(true);
       setError('');
-      // Adjust endpoint as needed.
       const { data } = await axios.get('/api/admin/users', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
@@ -31,13 +30,10 @@ function ManageUser() {
   }
 
   const handleDetails = (userId) => {
-    // For now, just log the ID; implement details view as needed.
-    console.log("Details for user:", userId);
-    // e.g., navigate(`/admin/users/details/${userId}`);
+    navigate(`/admin/users/details/${userId}`);
   };
 
   const handleEdit = (userId) => {
-    // Navigate to the EditUser page with the given user ID.
     navigate(`/admin/users/edit/${userId}`);
   };
 

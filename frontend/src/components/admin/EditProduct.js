@@ -385,9 +385,9 @@ function EditProduct() {
           </label>
         </fieldset>
         <div className="modal-actions">
-          <button type="submit">Save Changes</button>
-          <button type="button" onClick={handleDelete}>Delete Product</button>
-          <button type="button" onClick={handleCancel}>Cancel</button>
+        <button type="submit" className="save-btn">Save Changes</button>
+        {/* <button type="button" className="delete-btn" onClick={handleDelete}>Delete Product</button> */}
+        <button type="button" className="cancel-btn" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </div>

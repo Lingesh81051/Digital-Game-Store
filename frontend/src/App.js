@@ -1,3 +1,4 @@
+// frontend/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -23,7 +24,8 @@ import EditProduct from './components/admin/EditProduct';
 import AddProduct from './components/admin/AddProduct';
 import ManageOrder from './components/admin/ManageOrder';
 import ManageUser from './components/admin/ManageUser';
-import EditUser from './components/admin/EditUser'; // New: EditUser page for user editing
+import EditUser from './components/admin/EditUser';
+import UserDetails from './components/admin/UserDetails'; // New User Details page
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -58,6 +60,7 @@ function App() {
             <Route path="orders" element={<ManageOrder />} />
             <Route path="users" element={<ManageUser />} />
             <Route path="users/edit/:id" element={<EditUser />} />
+            <Route path="users/details/:id" element={<UserDetails />} />
           </Route>
         </Routes>
       </main>

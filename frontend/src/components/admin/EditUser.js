@@ -1,3 +1,4 @@
+// frontend/src/components/admin/EditUser.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -18,6 +19,7 @@ function EditUser() {
       street: '',
       city: '',
       state: '',
+      country: '', // Added country field
       pincode: ''
     },
     isAdmin: false
@@ -43,6 +45,7 @@ function EditUser() {
             street: data.address?.street || '',
             city: data.address?.city || '',
             state: data.address?.state || '',
+            country: data.address?.country || '', // Populate country if exists
             pincode: data.address?.pincode || ''
           },
           isAdmin: data.isAdmin || false
@@ -189,6 +192,16 @@ function EditUser() {
               type="text" 
               name="address.state" 
               value={user.address.state} 
+              onChange={handleInputChange} 
+            />
+          </div>
+          {/* New Country field below State */}
+          <div className="form-group">
+            <label>Country:</label>
+            <input 
+              type="text" 
+              name="address.country" 
+              value={user.address.country} 
               onChange={handleInputChange} 
             />
           </div>

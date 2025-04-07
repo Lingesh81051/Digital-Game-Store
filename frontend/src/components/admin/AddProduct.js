@@ -220,8 +220,8 @@ function AddProduct() {
           </label>
         </fieldset>
         <div className="form-actions">
-          <button type="submit">Add</button>
-          <button type="button" onClick={handleCancel}>Cancel</button>
+        <button type="submit" className="add-btn">Add</button>
+        <button type="button" className="cancel-btn" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </div>
