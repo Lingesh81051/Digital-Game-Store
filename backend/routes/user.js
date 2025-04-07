@@ -18,8 +18,18 @@ router.get('/profile', protect, async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      username: user.username,
+      phone: user.phone,
+      dob: user.dob,
+      gender: user.gender,
+      address: user.address,
+      securityQuestion: user.securityQuestion,
+      securityAnswer: user.securityAnswer,
       wishlist: user.wishlist,
-      cart: user.cart
+      cart: user.cart,
+      createdAt: user.createdAt,
+      lastLogin: user.lastLogin,
+      isAdmin: user.isAdmin
     });
   } catch (error) {
     console.error("Error fetching user profile:", error);
@@ -154,6 +164,49 @@ router.post('/library', protect, async (req, res) => {
   } catch (error) {
     console.error("Error adding to library:", error);
     res.status(500).json({ message: "Server error" });
+  }
+});
+
+// NEW: DELETE /api/user/profile - Delete (or anonymize) user account and related data
+router.delete('/profile', protect, async (req, res) => {
+  const userId = req.user.id;
+  try {
+    // Anonymize personal information in the User document
+    await User.findByIdAndUpdate(userId, {
+      name: "Deleted User",
+      email: `deleted_${Date.now()}@example.com`,
+      password: "",
+      username: "",
+      phone: "",
+      dob: null,
+      gender: "",
+      address: {},
+      securityAnswer: ""
+    });
+
+    // Clear wishlist and cart entirely
+    await User.findByIdAndUpdate(userId, { wishlist: [], cart: [] });
+
+    // Retain orders but remove user reference
+    const Order = require('../models/Order');
+    await Order.updateMany({ user: userId }, { $set: { user: null } });
+
+    // Update reviews/ratings if Review model exists (set display to "Deleted User" and remove user reference)
+    let Review;
+    try {
+      Review = require('../models/Review');
+      await Review.updateMany({ user: userId }, { $set: { userName: "Deleted User", user: null } });
+    } catch (err) {
+      console.log("Review model not found, skipping review update.");
+    }
+
+    // Remove personal game-related data (e.g., delete user's library)
+    await Library.deleteOne({ user: userId });
+
+    res.json({ message: "Account deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting account:", error);
+    res.status(500).json({ message: "Failed to delete account." });
   }
 });
 

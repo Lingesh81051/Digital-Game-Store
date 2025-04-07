@@ -53,6 +53,9 @@ function Login() {
           <button type="submit" className="login-btn">Login</button>
         </form>
         <p className="login-switch">
+          Forgot password? <Link to="/reset-password">Reset Password</Link>
+        </p>
+        <p className="login-switch">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
       </div>

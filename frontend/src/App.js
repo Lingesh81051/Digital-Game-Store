@@ -15,13 +15,15 @@ import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Checkout from './components/Checkout';
+import ResetPassword from './components/ResetPassword'; // New: ResetPassword component
+import ViewProfile from './components/ViewProfile'; // New: ViewProfile component
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageProducts from './components/admin/ManageProducts';
 import EditProduct from './components/admin/EditProduct';
 import AddProduct from './components/admin/AddProduct';
 import ManageOrder from './components/admin/ManageOrder';
-import ManageUser from './components/admin/ManageUser'; // New: ManageUser component
+import ManageUser from './components/admin/ManageUser';
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -44,6 +46,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/profile" element={<ViewProfile />} />  {/* New profile route */}
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
@@ -52,7 +56,7 @@ function App() {
             <Route path="products/add" element={<AddProduct />} />
             <Route path="products/edit/:id" element={<EditProduct />} />
             <Route path="orders" element={<ManageOrder />} />
-            <Route path="users" element={<ManageUser />} /> {/* New: Manage users route */}
+            <Route path="users" element={<ManageUser />} />
           </Route>
         </Routes>
       </main>

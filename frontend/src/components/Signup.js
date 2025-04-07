@@ -9,7 +9,7 @@ function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [favouriteColor, setFavouriteColor] = useState(''); // Security question answer
+  const [favouritePlace, setFavouritePlace] = useState(''); // Updated field
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
@@ -19,9 +19,12 @@ function Signup() {
       setMessage("Passwords don't match");
       return;
     }
+    if (!favouritePlace.trim()) {
+      setMessage("Please enter your favourite place.");
+      return;
+    }
     try {
-      // Send the extra field "favouriteColor" along with the other registration details.
-      await axios.post('/api/auth/register', { name, email, password, favouriteColor });
+      await axios.post('/api/auth/register', { name, email, password, favouritePlace });
       setMessage("Registration successful! Please log in with your credentials.");
       setTimeout(() => {
         navigate('/login');
@@ -78,14 +81,14 @@ function Signup() {
               required
             />
           </div>
-          {/* New Security Question Field */}
+          {/* Updated Security Question Field */}
           <div className="form-group">
-            <label>What is your favourite color?</label>
+            <label>What is your favourite place?</label>
             <input 
               type="text"
-              placeholder="Enter your favourite color"
-              value={favouriteColor}
-              onChange={(e) => setFavouriteColor(e.target.value)}
+              placeholder="Enter your favourite place"
+              value={favouritePlace}
+              onChange={(e) => setFavouritePlace(e.target.value)}
               required
             />
           </div>

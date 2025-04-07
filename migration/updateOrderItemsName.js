@@ -1,3 +1,5 @@
+// to run use this command: node migration/updateOrderItemsName.js
+
 // migration/updateOrderItemsName.js
 
 const mongoose = require('mongoose');
