@@ -71,57 +71,91 @@ Sure! Below is a **README.md** file for your **MERN-based E-commerce Platform fo
 ## 📁 Project Structure
 
 ```plaintext
-GameStore-Ecommerce/
-├── backend/
+Digital-Game-Store/
+├── Backend/
 │   ├── config/
-│   │     └── db.js                # Database connection setup
+│   │   └── db.js
 │   ├── middleware/
-│   │     └── authMiddleware.js    # Authentication middleware
+│   │   ├── adminMiddleware.js
+│   │   └── authMiddleware.js
 │   ├── models/
-│   │     ├── User.js              # User schema/model
-│   │     ├── Product.js           # Product schema/model
-│   │     └── Order.js             # Order schema/model
+│   │   ├── Library.js
+│   │   ├── News.js
+│   │   ├── Order.js
+│   │   ├── Product.js
+│   │   └── User.js
 │   ├── routes/
-│   │     ├── auth.js              # Authentication routes (login, signup)
-│   │     ├── product.js           # Product-related routes
-│   │     └── order.js             # Order-related routes
-│   ├── seeder.js                  # Script to seed sample data into MongoDB
-│   ├── .env                     # Environment variables
-│   └── server.js                  # Main Express server file
-│
-├── frontend/
+│   │   ├── admin.js
+│   │   ├── auth.js
+│   │   ├── library.js
+│   │   ├── order.js
+│   │   ├── product.js
+│   │   └── profile.js
+│   ├── .env
+│   ├── package.json
+│   └── server.js
+
+├── Frontend/
 │   ├── public/
-│   │     └── images/              # Static images (avatar.png, placeholder.png, product images, etc.)
+│   │   └── images/
 │   ├── src/
-│   │     ├── components/
-│   │     │     ├── Header.js
-│   │     │     ├── Header.css
-│   │     │     ├── Footer.js
-│   │     │     ├── Footer.css
-│   │     │     ├── Home.js
-│   │     │     ├── Home.css
-│   │     │     ├── Discover.js
-│   │     │     ├── Discover.css
-│   │     │     ├── News.js
-│   │     │     ├── News.css
-│   │     │     ├── Library.js
-│   │     │     ├── Library.css
-│   │     │     ├── Wishlist.js
-│   │     │     ├── Wishlist.css
-│   │     │     ├── Cart.js
-│   │     │     ├── Cart.css
-│   │     │     ├── Login.js
-│   │     │     ├── Signup.js
-│   │     │     ├── Auth.css             # Shared auth styles for Login/Signup
-│   │     │     ├── PageSearchBar.js
-│   │     │     ├── PageSearchBar.css
-│   │     │     └── CategoryFilter.js    
-│   │     ├── App.js
-│   │     └── App.css
+│   │   ├── components/
+│   │   │   ├── admin/
+│   │   │   │   ├── AddProduct.css
+│   │   │   │   ├── AddProduct.js
+│   │   │   │   ├── AdminDashboard.css
+│   │   │   │   ├── AdminDashboard.js
+│   │   │   │   ├── AdminLayout.css
+│   │   │   │   ├── AdminLayout.js
+│   │   │   │   ├── EditProduct.css
+│   │   │   │   ├── EditProduct.js
+│   │   │   │   ├── ManageOrder.css
+│   │   │   │   ├── ManageOrder.js
+│   │   │   │   ├── ManageProducts.css
+│   │   │   │   ├── ManageProducts.js
+│   │   │   │   ├── ManageUser.css
+│   │   │   │   └── ManageUser.js
+│   │   │
+│   │   │   ├── Auth.css
+│   │   │   ├── Cart.css
+│   │   │   ├── Cart.js
+│   │   │   ├── CategoryFilter.css
+│   │   │   ├── CategoryFilter.js
+│   │   │   ├── Discover.css
+│   │   │   ├── Discover.js
+│   │   │   ├── Footer.css
+│   │   │   ├── Footer.js
+│   │   │   ├── Header.css
+│   │   │   ├── Header.js
+│   │   │   ├── Home.css
+│   │   │   ├── Home.js
+│   │   │   ├── Library.css
+│   │   │   ├── Library.js
+│   │   │   ├── Login.js
+│   │   │   ├── News.css
+│   │   │   ├── News.js
+│   │   │   ├── NewsDetail.css
+│   │   │   ├── NewsDetail.js
+│   │   │   ├── PageSearchBar.css
+│   │   │   ├── PageSearchBar.js
+│   │   │   ├── PrivateRoute.js
+│   │   │   ├── ProductCard.css
+│   │   │   ├── ProductCard.js
+│   │   │   ├── profile.css
+│   │   │   ├── profile.js
+│   │   │   ├── Signup.js
+│   │   │   ├── Wishlist.css
+│   │   │   └── Wishlist.js
+│   ├── App.css
+│   ├── App.js
 │   └── package.json
-│
-├── package.json                   # Root-level package.json (with concurrently, etc.)
-└── README.md
+
+├── migration/
+│   ├── updateFavouriteField.js
+│   └── updateOrderItemsName.js
+
+├── .gitignore
+├── README.md
 ```
 
 ---
