@@ -15,20 +15,18 @@ app.use(cors());
 // Serve static files from the "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
+// API Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/products', require('./routes/product')); // existing product routes
-app.use('/api/news', require('./routes/news')); // existing news routes
+app.use('/api/products', require('./routes/product')); // Product routes
+app.use('/api/news', require('./routes/news')); // News routes
+app.use('/api/user/profile', require('./routes/profile')); // Profile routes
+app.use('/api/user', require('./routes/user')); // Other user routes
+app.use('/api/orders', require('./routes/order')); // Order routes
+app.use('/api/user/library', require('./routes/library')); // Library routes
+app.use('/api/admin', require('./routes/admin')); // Admin routes
 
-// Mount profile endpoints under /api/user/profile for profile view/update
-// (Make sure you have created a separate "profile.js" route file for profile-specific operations)
-app.use('/api/user/profile', require('./routes/profile'));
-
-// Other user-related routes (wishlist, cart, etc.)
-app.use('/api/user', require('./routes/user'));
-app.use('/api/orders', require('./routes/order')); // order routes
-app.use('/api/user/library', require('./routes/library')); // library routes
-app.use('/api/admin', require('./routes/admin')); // admin routes
+// ✅ Contact Us route
+app.use('/api/contact', require('./routes/contact')); // New contact route
 
 // Serve React frontend in production
 if (process.env.NODE_ENV === 'production') {

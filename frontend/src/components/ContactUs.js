@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './ContactUs.css'; // Make sure this file is in the same folder or adjust the path accordingly
+import './ContactUs.css'; // Make sure this file exists and is styled properly
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -9,35 +9,36 @@ const ContactUs = () => {
     subject: '',
     message: ''
   });
-  const [status, setStatus] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // Destructure form data for convenience
   const { name, email, subject, message } = formData;
 
-  // Update form data on input change
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  // Handle form submission to the backend API
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Replace '/api/contact' with your actual backend endpoint
       const response = await axios.post('/api/contact', formData);
       console.log('Response:', response.data);
-      setStatus('Your message has been sent successfully.');
-      // Reset form fields after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      setIsSuccess(true);
+      setStatusMessage('✅ Message sent! We’ll get back to you shortly.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error sending contact form data:', error);
-      setStatus('There was an error sending your message. Please try again.');
+      setIsSuccess(false);
+      setStatusMessage('❌ Failed to send message. Please try again later.');
     }
   };
+
+  // Auto-hide the status message after 5 seconds
+  useEffect(() => {
+    if (statusMessage) {
+      const timer = setTimeout(() => setStatusMessage(''), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [statusMessage]);
 
   return (
     <div className="contact-container">
@@ -46,6 +47,7 @@ const ContactUs = () => {
         <h1 className="hero-title">Contact Us</h1>
         <p className="hero-subtitle">Have questions or feedback? We're here to help!</p>
       </div>
+
       {/* Contact Form */}
       <form onSubmit={handleSubmit} className="contact-form">
         <label className="contact-label">Name:</label>
@@ -91,8 +93,16 @@ const ContactUs = () => {
           Send Message
         </button>
       </form>
-      {/* Status Message */}
-      {status && <p className="contact-status">{status}</p>}
+
+      {/* Notification Message */}
+      {statusMessage && (
+        <div className={`contact-status ${isSuccess ? 'success' : 'error'}`}>
+          <span>{statusMessage}</span>
+          <button className="close-button" onClick={() => setStatusMessage('')}>
+            &times;
+          </button>
+        </div>
+      )}
     </div>
   );
 };
