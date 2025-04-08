@@ -17,6 +17,7 @@ import Signup from './components/Signup';
 import Checkout from './components/Checkout';
 import ResetPassword from './components/ResetPassword';
 import ViewProfile from './components/ViewProfile';
+import AboutUs from './components/AboutUs'; // Imported About Us component
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageProducts from './components/admin/ManageProducts';
@@ -50,6 +51,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/profile" element={<ViewProfile />} />
+          <Route path="/about" element={<AboutUs />} />  {/* New About Us route */}
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>

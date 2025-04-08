@@ -1,24 +1,25 @@
+// frontend/src/components/AboutUs.js
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./AboutUs.css";
 
 // Sample team members data
 const teamMembers = [
-  { name: "Alex", role: "Founder & CEO", image: "/images/team1.jpg" },
-  { name: "Jordan", role: "Lead Developer", image: "/images/team2.jpg" },
-  { name: "Casey", role: "Creative Director", image: "/images/team3.jpg" },
+  { name: "Anonymous 1", role: "Founder & CEO", image: "/images/footer/avatar1.jpg" },
+  { name: "Anonymous 2", role: "Lead Developer", image: "/images/footer/avatar2.jpg" },
+  { name: "Anonymous 3", role: "Creative Director", image: "/images/footer/avatar3.jpg" },
 ];
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
+  const handleExploreClick = () => {
+    navigate("/categories", { replace: true });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="about-us-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="overlay">
-          <h1>Level Up with Us</h1>
-          <p>Your ultimate digital game store for endless adventures.</p>
-        </div>
-      </section>
-
       {/* Story Section */}
       <section className="story-section" id="our-story">
         <div className="container">
@@ -67,7 +68,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Meet the Team Section (Optional) */}
+      {/* Meet the Team Section */}
       <section className="team-section" id="meet-the-team">
         <div className="container">
           <h2>Meet the Team</h2>
@@ -86,10 +87,7 @@ const AboutUs = () => {
       {/* Call to Action */}
       <section className="cta-section">
         <div className="container">
-          <button
-            className="cta-button"
-            onClick={() => window.location.assign("/store")}
-          >
+          <button className="cta-button" onClick={handleExploreClick}>
             Explore Our Games
           </button>
         </div>
