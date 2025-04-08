@@ -9,8 +9,7 @@ function Footer() {
 
   const handleNavClick = (e, path) => {
     e.preventDefault();
-
-    // Always navigate first
+    // Navigate to the target path
     navigate(path);
     // After a slight delay, scroll to the top
     setTimeout(() => {

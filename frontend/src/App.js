@@ -17,9 +17,10 @@ import Signup from './components/Signup';
 import Checkout from './components/Checkout';
 import ResetPassword from './components/ResetPassword';
 import ViewProfile from './components/ViewProfile';
-import AboutUs from './components/AboutUs'; // Imported About Us component
+import AboutUs from './components/AboutUs'; // About Us component
 import TermsOfService from './components/TermsOfService'; // Terms of Service component
-import PrivacyPolicy from './components/PrivacyPolicy'; // Import Privacy Policy component
+import PrivacyPolicy from './components/PrivacyPolicy'; // Privacy Policy component
+import ContactUs from './components/ContactUs'; // Contact Us component
 
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
@@ -57,7 +58,9 @@ function App() {
           <Route path="/profile" element={<ViewProfile />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />  {/* Added Privacy Policy route */}
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          {/* New Contact Us Route */}
+          <Route path="/contact" element={<ContactUs />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>

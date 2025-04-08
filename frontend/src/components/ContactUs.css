@@ -1,0 +1,73 @@
+.contact-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-title {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .hero-subtitle {
+    margin: 0;
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-label {
+    margin-bottom: 0.5rem;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  .contact-input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .contact-textarea {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 120px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  .contact-button {
+    padding: 0.75rem;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .contact-status {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #28a745;
+  }
+  
