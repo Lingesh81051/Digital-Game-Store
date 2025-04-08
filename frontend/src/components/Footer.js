@@ -1,4 +1,4 @@
-// Footer.js
+// frontend/src/components/Footer.js
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Footer.css';
@@ -10,14 +10,12 @@ function Footer() {
   const handleNavClick = (e, path) => {
     e.preventDefault();
 
-    if (location.pathname === path) {
+    // Always navigate first
+    navigate(path);
+    // After a slight delay, scroll to the top
+    setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate(path);
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
-    }
+    }, 100);
   };
 
   return (
@@ -29,7 +27,7 @@ function Footer() {
           <a href="/privacy" onClick={(e) => handleNavClick(e, "/privacy")}>Privacy Policy</a>
           <a href="/terms" onClick={(e) => handleNavClick(e, "/terms")}>Terms of Service</a>
         </div>
-        <p>&copy; {new Date().getFullYear()} GameHub. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} GameSapien. All rights reserved.</p>
       </div>
     </footer>
   );

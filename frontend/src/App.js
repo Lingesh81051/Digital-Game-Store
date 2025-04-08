@@ -18,6 +18,9 @@ import Checkout from './components/Checkout';
 import ResetPassword from './components/ResetPassword';
 import ViewProfile from './components/ViewProfile';
 import AboutUs from './components/AboutUs'; // Imported About Us component
+import TermsOfService from './components/TermsOfService'; // Terms of Service component
+import PrivacyPolicy from './components/PrivacyPolicy'; // Import Privacy Policy component
+
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
 import ManageProducts from './components/admin/ManageProducts';
@@ -26,7 +29,8 @@ import AddProduct from './components/admin/AddProduct';
 import ManageOrder from './components/admin/ManageOrder';
 import ManageUser from './components/admin/ManageUser';
 import EditUser from './components/admin/EditUser';
-import UserDetails from './components/admin/UserDetails'; // New User Details page
+import UserDetails from './components/admin/UserDetails';
+
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -51,7 +55,9 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/profile" element={<ViewProfile />} />
-          <Route path="/about" element={<AboutUs />} />  {/* New About Us route */}
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />  {/* Added Privacy Policy route */}
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>

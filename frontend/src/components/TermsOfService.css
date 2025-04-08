@@ -1,0 +1,117 @@
+/* Global settings */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Sticky Last Updated Banner */
+  .last-updated {
+    position: sticky;
+    top: 0;
+    background: #3498db;
+    color: #fff;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    z-index: 1000;
+  }
+  
+  /* Main container for the Terms page */
+  .terms-page {
+    padding: 1rem;
+  }
+  
+  /* Container for all the Terms content */
+  .terms-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Header styling */
+  .terms-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 1rem;
+  }
+  .terms-header h1 {
+    font-size: 2.8rem;
+    color: #3498db;
+    margin: 0 0 0.5rem 0;
+  }
+  .terms-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0;
+  }
+  
+  /* Section styling */
+  .terms-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .terms-section h2 {
+    font-size: 1.8rem;
+    color: #2980b9;
+    margin-bottom: 0.5rem;
+    padding-left: 4px;
+    position: relative;
+  }
+  .terms-section h2::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: #3498db;
+    border-radius: 2px;
+  }
+  .terms-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .terms-container {
+      padding: 1.5rem 2rem;
+      margin: 1rem;
+    }
+    .terms-header h1 {
+      font-size: 2.2rem;
+    }
+    .terms-section h2 {
+      font-size: 1.6rem;
+    }
+    .terms-section p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .terms-container {
+      padding: 1rem;
+    }
+    .terms-header h1 {
+      font-size: 2rem;
+    }
+    .terms-section h2 {
+      font-size: 1.4rem;
+    }
+    .terms-section p {
+      font-size: 0.9rem;
+    }
+  }
+  
