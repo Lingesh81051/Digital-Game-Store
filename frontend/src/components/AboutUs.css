@@ -1,0 +1,193 @@
+/* Global smooth scrolling (optional) */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* General container */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    height: 100vh;
+    background: url("/images/gaming-hero.jpg") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  
+  .hero-section .overlay {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-section p {
+    font-size: 1.5rem;
+  }
+  
+  /* Story Section */
+  .story-section {
+    background: #f9f9f9;
+    color: #333;
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .story-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .story-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* What We Offer Section */
+  .offer-section {
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .offer-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .offer-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .offer-item {
+    flex: 0 0 45%;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .offer-item i {
+    font-size: 3rem;
+    color: #ff5722;
+    margin-bottom: 1rem;
+  }
+  
+  .offer-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .offer-item p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .offer-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Meet the Team Section */
+  .team-section {
+    background: #f9f9f9;
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .team-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .team-member {
+    flex: 0 0 30%;
+    margin: 1rem 0;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-member p {
+    color: #777;
+  }
+  
+  /* Call to Action Section */
+  .cta-section {
+    background: #ff5722;
+    text-align: center;
+    padding: 3rem 0;
+  }
+  
+  .cta-button {
+    background: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: #ff5722;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 2.5rem;
+    }
+    .hero-section p {
+      font-size: 1.2rem;
+    }
+    .offer-item {
+      flex: 0 0 90%;
+    }
+    .team-member {
+      flex: 0 0 45%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .team-member {
+      flex: 0 0 100%;
+    }
+  }
+  
