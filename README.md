@@ -164,8 +164,8 @@ Digital-Game-Store/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/GameStore-Ecommerce.git
-cd GameStore-Ecommerce-Website
+git clone https://github.com/Lingesh81051/Digital-Game-Store.git
+cd Digital-Game-Store
 ```
 
 ### 2. Backend Setup
