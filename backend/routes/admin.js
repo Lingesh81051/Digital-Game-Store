@@ -68,7 +68,7 @@ router.put('/products/:id', protect, adminOnly, async (req, res) => {
       } catch (err) {
         console.error('Error reading or parsing seed file:', err);
       }
-      const index = products.findIndex(p => p._id === req.params.id);
+      const index = products.findIndex(p => p._id.toString() === req.params.id);
       if (index !== -1) {
         products[index] = { ...products[index], ...updatedProduct.toObject() };
       } else {
@@ -88,9 +88,9 @@ router.put('/products/:id', protect, adminOnly, async (req, res) => {
 
 router.delete('/products/:id', protect, adminOnly, async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
-    if (product) {
-      await product.remove();
+    // Use findByIdAndDelete to remove product from the database
+    const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+    if (deletedProduct) {
       let products = [];
       try {
         const data = fs.readFileSync(seedFilePath, 'utf8');
@@ -98,7 +98,8 @@ router.delete('/products/:id', protect, adminOnly, async (req, res) => {
       } catch (err) {
         console.error('Error reading or parsing seed file:', err);
       }
-      const updatedProducts = products.filter(p => p._id !== req.params.id);
+      // Compare IDs as strings to ensure correct filtering
+      const updatedProducts = products.filter(p => p._id.toString() !== req.params.id);
       updateSeedFile(updatedProducts);
       res.json({ message: 'Product removed' });
     } else {
@@ -164,7 +165,6 @@ router.get('/users', protect, adminOnly, async (req, res) => {
 });
 
 // Get a single user by ID (for EditUser)
-// This endpoint returns all user fields (including new profile fields like address with country) except password.
 router.get('/users/:id', protect, adminOnly, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');

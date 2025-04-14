@@ -35,5 +35,39 @@
     "createdAt": "2025-04-05T07:46:40.507Z",
     "updatedAt": "2025-04-05T08:05:47.688Z",
     "__v": 0
+  },
+  {
+    "name": "Suicide Squad",
+    "description": "aaaaaaaaaaa",
+    "price": -13,
+    "countInStock": 5,
+    "image": "images/games/suicidesquad.jpg",
+    "categories": [
+      "First-person shooter",
+      "Action-adventure",
+      "Action",
+      "Adventure",
+      "Featured Discounts"
+    ],
+    "trailer": "",
+    "developer": "Rocksteady Games",
+    "releaseDate": "2025-04-11T00:00:00.000Z",
+    "platform": "PS5, PC",
+    "ratings": 2,
+    "minRequirements": {
+      "os": "win 7",
+      "processor": "intel i5",
+      "ram": "4gb",
+      "hardDrive": "500GB",
+      "videoCard": "Nvidia 2050",
+      "soundCard": "aa",
+      "directX": "directX 11",
+      "peripherals": "keyboard, mouse"
+    },
+    "_id": "67f8b09a2cf3682daf7f03bc",
+    "comments": [],
+    "createdAt": "2025-04-11T06:03:06.522Z",
+    "updatedAt": "2025-04-11T06:04:53.643Z",
+    "__v": 0
   }
 ]

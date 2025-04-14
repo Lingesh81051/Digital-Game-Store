@@ -8,6 +8,16 @@ function ManageProducts() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
+  // Helper: get auth config for protected API calls, if required.
+  const getAuthConfig = () => {
+    const token = localStorage.getItem('token');
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -29,11 +39,13 @@ function ManageProducts() {
   const handleDelete = async (productId) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`/api/admin/products/${productId}`);
+        // Use the correct endpoint URL here. 
+        // Change '/api/products/' to '/api/admin/products/' if that matches your backend.
+        await axios.delete(`/api/products/${productId}`, getAuthConfig());
         console.log('Product deleted:', productId);
         fetchProducts();
       } catch (error) {
-        console.error('Error deleting product:', error);
+        console.error('Error deleting product:', error.response ? error.response.data : error);
       }
     }
   };
